@@ -27,6 +27,15 @@ to_upper() {
     echo "$1" | tr '[:lower:]' '[:upper:]'
 }
 
+# 创建工作目录
+create_dirs() {
+    info "创建工作目录..."
+    for dir in font bdf code maps; do
+        mkdir -p $dir
+    done
+    success "目录创建完成"
+}
+
 # 生成头文件
 generate_header() {
     local font_name=$1
